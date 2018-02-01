@@ -1,4 +1,7 @@
+import { InsideTabs1Page } from './../pages/insideTabs1/insideTabs1';
+import { InsideTabs2Page } from './../pages/insideTabs2/insideTabs2';
 import { NgModule, ErrorHandler } from '@angular/core';
+import { InsideTabsPage } from './../pages/insideTabs/insideTabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -10,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SinglePagePage } from './../pages/singlePage/singlePage';
 
 @NgModule({
   declarations: [
@@ -17,11 +21,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    InsideTabs1Page,
+    InsideTabs2Page,
+    InsideTabsPage,
+    SinglePagePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '返回',
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      swipeBackEnabled: true,
+      tabsHideOnSubPages: true,
+      pageTransition: 'android-transition'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +44,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    InsideTabs1Page,
+    InsideTabs2Page,
+    InsideTabsPage,
+    SinglePagePage
   ],
   providers: [
     StatusBar,
